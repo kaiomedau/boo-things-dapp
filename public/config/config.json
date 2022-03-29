@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x7c54bd795f3704F8F16282C070ffb68D8B9f3766",
+  "SCAN_LINK": "https://mumbai.polygonscan.com/address/0x7c54bd795f3704F8F16282C070ffb68D8B9f3766#writeContract",
+  "NETWORK": {
+    "NAME": "Polygon",
+    "SYMBOL": "Matic",
+    "ID": 80001
+  },
+  "NFT_NAME": "Boo Things",
+  "SYMBOL": "BOO",
+  "MAX_SUPPLY": 10000,
+  "WEI_COST": 1,
+  "DISPLAY_COST": 0.0,
+  "GAS_LIMIT": 320000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/nerdy-coder-clones",
+  "SHOW_BACKGROUND": true
+}

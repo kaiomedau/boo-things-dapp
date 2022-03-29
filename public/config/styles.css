@@ -1,0 +1,419 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  text-shadow: 0px 1px 0px rgba(63,107,169, 0.5);
+  font-family:'Fredoka', sans-serif;
+  text-align:center;
+  letter-spacing:0;
+  color:white;
+  font-size:16px;
+
+  background: #3bd0ff;
+}
+
+
+.grad_green { 
+  background-image:linear-gradient(-20deg, rgba(0, 255, 132.0000073313713, 1) 0%,rgba(157.0000058412552, 250.00000029802322, 247.00000047683716, 1) 49.47916567325592%,rgba(109.00000110268593, 201.00000321865082, 253.0000001192093, 1) 100%) ;
+}
+
+.blue_bg {
+  background-color: #3bd0ff;
+}
+
+.pink_bg {
+  background-color: #FF87B9;  
+}
+
+.purple_bg {
+  background-color: #D783FF;
+}
+
+.dark_blue_bg {
+  background-color: #2F7CA8;
+}
+
+div {
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  /*border: solid red;*/
+}
+
+
+header {
+  display: block;
+  font-size: 24px;
+  margin: 0 40px;
+  height: 80px;
+}
+
+ul{
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+
+header li{
+  display: inline-block;
+  margin: 0 14px;
+}
+
+footer {
+  height: 80px;
+}
+
+h2 {
+  font-size: 80px;
+  margin: 50px 20px 20px 20px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+button {
+  font-family:'Fredoka', sans-serif;
+  font-size: 24px;
+  text-transform: capitalize;
+  color: #fff;
+  height: 60px;
+  background-color: #6ECAFD;
+}
+
+button:disabled{
+  background-color: #DBDBDB;
+}
+
+.h_100 {
+  min-height: 100%;
+}
+
+.content {
+  position: relative;
+  margin: 40px;
+  padding-bottom: 40px;
+  /*border: solid;*/
+}
+
+.content p {
+  width: 70%;
+  font-size: 24px;
+  margin: 20px auto;
+}
+
+.socials {
+  display: inline-block;
+  float: right;
+  margin: 20px 0;
+}
+
+.socials a {
+  display: inline-block;
+  float: right;
+  margin-left: 24px;
+}
+
+.socials img {
+  height: 26px;
+}
+
+.socials.teammember, .socials.footer {
+  float: none;
+}
+
+.socials.teammember img {
+  width: 24px;
+}
+
+.socials a:last-of-type, 
+.socials.teammember a:last-of-type,
+.socials.footer a:last-of-type {
+  margin-left: 0px;
+}
+
+.socials.footer img {
+  height: 32px;
+}
+
+.logo { 
+  width:120px;
+  height:54px;
+  margin: 10px 0;
+  background-image:url("../../logo_ent_dados_asset_10_3x_1.png");
+  background-repeat:no-repeat;
+  background-size:120px;
+  float: left;
+}
+
+.logo.footer {
+  float: none;
+  margin: 0px auto;
+}
+
+
+.round_button {
+  font-size: 32px;
+  font-weight: 500;
+  border-radius: 120px;
+  border: solid 4px white;
+  display: block;
+  padding: 10px 40px;
+  max-width: 300px;
+  margin: 40px auto 0px;
+}
+
+.hero {
+  position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    overflow: visible;
+    /*border: solid;*/
+}
+
+.hero h4 {
+  margin-top: 40px;
+}
+
+.ghost {
+  transform: translatey(0px);
+  animation: float 3s ease-in-out infinite;
+}
+
+.question {
+  position: relative;
+  background-color: #FFA7CC;
+  border-radius: 8px;
+  margin: 24px auto;
+  width: 70%;
+}
+
+.question h5 {
+  font-size: 32px;
+  margin: 20px 50px 20px 20px;
+  text-transform: capitalize;
+}
+
+.plus-sign {
+  font-size: 40px;
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  right: 0;
+  top: 11px;
+  color: #FF87B9;
+  text-shadow: none;
+}
+
+.question p {
+  margin-bottom: 32px;
+  display: none;
+}
+
+.question.open p {
+  display: block;
+}
+
+#featured {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.featured-boos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 4000px;
+  animation: slide 20s ease-in-out infinite;
+}
+
+.featured-boos li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+.featured-boos img {
+  width: 324px;
+}
+
+#dapp-container{
+  background-color: rgba(255, 255, 255, .7);
+  width: 400px;
+  height: 420px;
+  margin: auto;
+
+  position: relative;
+  border: solid 1px white;
+  border-radius: 20px;
+
+  color: #6ECAFD;
+  text-shadow: none;
+}
+
+#dapp-container button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: none;
+  border-radius: 0 0 20px 20px;
+}
+
+#dapp-container h2 {
+  font-size: 48px;
+  margin: 14px;
+}
+
+#dapp-container h3 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#dapp-container ul {
+  background-color: rgba(255, 255, 255, .5);
+  border: solid 1px white;
+  border-radius: 20px;
+
+  width: 43%;
+  height: 90px;
+  float: left;
+
+  position: relative;
+
+  font-size: 52px;
+  font-weight: bold;
+
+  margin: 0;
+}
+
+#dapp-container ul.score-right {
+  float: right;
+}
+
+#dapp-container ul .label {
+  font-size: 18px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+
+.mint-status, .price-status {
+  display: block;
+
+  margin: 44px auto auto;
+  width: 80%;
+}
+
+.price-status {
+  margin-top: 20px;
+}
+
+
+.price-status p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.connect {
+  color: #DBDBDB;
+}
+
+.closed {
+  color: #6ECAFD;
+}
+
+.whitelist {
+  color: #FF87B9;
+}
+
+.whitelist button:enabled {
+  background-color: #FF87B9; 
+}
+
+.public {
+  color: #21FC94;
+}
+
+.public button:enabled {
+  background-color: #21FC94; 
+}
+
+#dapp-container < .public {
+  border-color: #21FC94;
+}
+
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  header ul {display: none;}
+
+  .round_button {
+    font-size: 24px;
+    padding: 20px 32px;
+  }
+
+  .content, header {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .content p {
+    width: auto;
+  }
+
+  .question {
+    width: auto;
+  }
+
+  .question p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+} 
+
+@media only screen and (max-height: 450px) {
+  .round_button {
+    display: none;
+  } 
+}
+
+@keyframes slide {
+  0% {
+    transform: translatex(0);
+  }
+  50% {
+    transform: translatex(-41%);
+  }
+  100% {
+    transform: translatex(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
