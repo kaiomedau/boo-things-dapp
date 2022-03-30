@@ -225,7 +225,7 @@ function App() {
   if(blockchain.account === "" || blockchain.smartContract === null) {
     return (
       <>
-        <div class="connect">
+        <div id="dapp" class="connect">
             <h2>
               Boo Things
             </h2>
@@ -233,18 +233,18 @@ function App() {
             <div class="mint-status">
               <ul class="score-left">
                 <li>0</li>
-                <li class="label">Whitelist</li>
+                <li class="label">Whitelist Slots</li>
               </ul>
 
               <ul class="score-right">
                 <li>0</li>
-                <li class="label">Minted</li>
+                <li class="label">Ghosts Minted</li>
               </ul>
             </div>
             
             <div class="price-status">
               <h3>Free</h3>
-              <p>Price for your next mint</p>
+              <p>Price of your next ghost</p>
               <small>+ Cents in Gas Fees</small>
             </div>
 
@@ -257,9 +257,10 @@ function App() {
             >
               Connect your wallet
             </button>
-          
-            {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}    
         </div>
+
+        {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}    
+        {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
       </>
     );
   }
@@ -270,33 +271,33 @@ function App() {
     return (
         
           <>
-            <div class="closed">
+            <div id="dapp" class="closed">
               <h2>
-                Not Live Yet
+                Mint Not Live
               </h2>
 
               <div class="mint-status">
                 <ul class="score-left">
                   <li>{whitelistCount}</li>
-                  <li class="label">Whitelist</li>
+                  <li class="label">Whitelist Slots</li>
                 </ul>
 
                 <ul class="score-right">
                   <li>{mintDone}</li>
-                  <li class="label">Minted</li>
+                  <li class="label">Ghosts Minted</li>
                 </ul>
               </div>
               
               <div class="price-status">
                 <h3>{displayPrice}</h3>
-                <p>Price for your next mint</p>
+                <p>Price of your next ghost</p>
                 <small>+ Cents in Gas Fees</small>
               </div>
 
-              <button disabled="1">
-                Waiting
-              </button>
             </div>
+
+            {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
+            {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
           </>
         
       );
@@ -307,7 +308,7 @@ function App() {
       return (
         
           <>
-            <div class="public">
+            <div id="dapp" class="public">
               <h2>
                 Public Sale
               </h2>
@@ -315,18 +316,18 @@ function App() {
               <div class="mint-status">
                 <ul class="score-left">
                   <li>{mintDone}</li>
-                  <li class="label">Minted</li>
+                  <li class="label">Ghosts Minted</li>
                 </ul>
 
                 <ul class="score-right">
                   <li>{whitelistCount}</li>
-                  <li class="label">Whitelists</li>
+                  <li class="label">Whitelist Slots</li>
                 </ul>
               </div>
               
               <div class="price-status">
                 <h3>{ displayPrice }</h3>
-                <p>Price for your next mint</p>
+                <p>Price of your next ghost</p>
                 <small>+ Cents in Gas Fees</small>
               </div>
 
@@ -337,11 +338,12 @@ function App() {
                   getData();
                 }}
               > 
-              {claimingNft ? "Minting" : "Mint your Boo"}
+              {claimingNft ? "Working..." : "Mint your Boo"}
               </button>
-
-              {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
             </div>
+
+            {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
+            {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
           </>
         
       );
@@ -352,7 +354,7 @@ function App() {
       return (
         
           <>
-            <div class="whitelist">
+            <div id="dapp" class="whitelist">
               <h2>
                 Whitelist
               </h2>
@@ -360,18 +362,18 @@ function App() {
               <div class="mint-status">
                 <ul class="score-left">
                   <li>{mintDone}</li>
-                  <li class="label">Minted</li>
+                  <li class="label">Ghosts Minted</li>
                 </ul>
 
                 <ul class="score-right">
                   <li>{whitelistCount}</li>
-                  <li class="label">Whitelists</li>
+                  <li class="label">Whitelist Slots</li>
                 </ul>
               </div>
               
               <div class="price-status">
                 <h3>{ displayPrice }</h3>
-                <p>Price for your next mint</p>
+                <p>Price of your next ghost</p>
                 <small>+ Cents in Gas Fees</small>
               </div>
 
@@ -385,7 +387,7 @@ function App() {
                     getData();
                   }}
                   > 
-                  {claimingNft ? "Minting" : "Mint Whitelisted Boo"}
+                  {claimingNft ? "Working..." : "Mint your Boo"}
                   </button>
                 ) : (
                   <button disabled="1"> 
@@ -393,13 +395,16 @@ function App() {
                   </button>
                 )
               }
-
-              {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
           </div>
+
+          {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
+          {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
         </>
         
       );
   }
+
+  
 }
 
 export default App;

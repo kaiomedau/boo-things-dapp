@@ -10,7 +10,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("dapp")
+  document.getElementById("dapp-container")
 );
 
 reportWebVitals();

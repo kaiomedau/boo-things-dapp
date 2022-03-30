@@ -56,7 +56,7 @@ header {
 ul{
   list-style: none;
   display: inline-block;
-  padding: 0;
+  padding: 4px;
 }
 
 header li{
@@ -252,21 +252,25 @@ button:disabled{
 #dapp-container{
   background-color: rgba(255, 255, 255, .7);
   width: 400px;
-  height: 420px;
   margin: auto;
 
   position: relative;
-  border: solid 1px white;
-  border-radius: 20px;
+  border-radius: 22px;
 
   color: #6ECAFD;
   text-shadow: none;
+
+  overflow: hidden;
+}
+
+#dapp {
+  border: solid 2px white;
+  border-radius: 22px;
 }
 
 #dapp-container button {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  display: block;
+  margin: 0;
   width: 100%;
   border: none;
   border-radius: 0 0 20px 20px;
@@ -289,7 +293,7 @@ button:disabled{
   border-radius: 20px;
 
   width: 43%;
-  height: 90px;
+  height: 100%;
   float: left;
 
   position: relative;
@@ -307,11 +311,8 @@ button:disabled{
 #dapp-container ul .label {
   font-size: 18px;
 
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 30px;
+  min-height: 30px;
 }
 
 .mint-status, .price-status {
@@ -322,13 +323,18 @@ button:disabled{
 }
 
 .price-status {
-  margin-top: 20px;
+  margin: 20px auto 30px auto;
 }
 
 
 .price-status p {
   margin: 0;
   font-size: 18px;
+  text-transform: lowercase;
+}
+
+small {
+  text-transform: lowercase; 
 }
 
 .connect {
@@ -339,8 +345,16 @@ button:disabled{
   color: #6ECAFD;
 }
 
+#dapp.closed {
+  border-color: #6ECAFD;
+}
+
 .whitelist {
   color: #FF87B9;
+}
+
+#dapp.whitelist {
+  border-color: #FF87B9;
 }
 
 .whitelist button:enabled {
@@ -351,12 +365,12 @@ button:disabled{
   color: #21FC94;
 }
 
-.public button:enabled {
-  background-color: #21FC94; 
+#dapp.public {
+  border-color: #21FC94;
 }
 
-#dapp-container < .public {
-  border-color: #21FC94;
+.public button:enabled {
+  background-color: #21FC94; 
 }
 
 
@@ -366,7 +380,11 @@ button:disabled{
   header ul {display: none;}
 
   #dapp-container {
-    width: 300px;
+    width: 310px;
+  }
+
+  .mint-status, .price-status {
+    width: 98%;
   }
 
   .round_button {
