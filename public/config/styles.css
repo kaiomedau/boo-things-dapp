@@ -170,9 +170,9 @@ button:disabled{
 
 .hero {
   position: absolute;
-  top: 60%;
-  -ms-transform: translateY(-60%);
-  transform: translateY(-60%);
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   width: 100%;
   overflow: visible;
 }
