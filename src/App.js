@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
+import Web3B from "web3";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -43,14 +44,12 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-
   const removefeedback = () => {
     setTimeout(function(){ 
       setSuccessFeedback(``);
       setWarningFeedback(``);
     }, 2000);
   }
-
 
   const getSaleState = () => {
     blockchain.smartContract.methods.isSaleActive().call().then((receipt) => {
@@ -70,7 +69,7 @@ function App() {
       console.log("🤑🤑 Next price: " + receipt);
       
       // Set display price
-      setDisplayPrice(receipt == 0 ? "Free" : receipt + " MATIC");
+      setDisplayPrice(receipt == 0 ? "Free" : Web3B.utils.fromWei(receipt, 'ether') + " MATIC");
       
       // Set mint price
       setMintPrice (receipt);
@@ -228,7 +227,6 @@ function App() {
   useEffect(() => {
     getData();
   }, [blockchain.account]);
-
 
   
   // Check if wallet is connected
