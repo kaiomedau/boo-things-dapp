@@ -12,7 +12,8 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [warningFeedback, setWarningFeedback] = useState(``);
+  const [successFeedback, setSuccessFeedback] = useState(``);
   const [displayPrice, setDisplayPrice] = useState(`0 MATIC`);
 
   const [mintLive, setMintLive] = useState(false);
@@ -41,6 +42,14 @@ function App() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
+
+
+  const removefeedback = () => {
+    setTimeout(function(){ 
+      setSuccessFeedback(``);
+      setWarningFeedback(``);
+    }, 2000);
+  }
 
 
   const getSaleState = () => {
@@ -105,8 +114,6 @@ function App() {
 // Mint
 // Whitelist
   const claimWhitelistNFT = () => {
-    setFeedback(`Minting your Free BOO...`);
-    
     // Set button as minting
     setClaimingNft(true);
 
@@ -117,19 +124,21 @@ function App() {
         value: String(0),
       })
       .once("error", (err) => {
+        setWarningFeedback("Oops... Try again later.");
+        setSuccessFeedback(``);
+        removefeedback();
+
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
         setClaimingNft(false);
       })
       .then((receipt) => {
+        setSuccessFeedback(`👻 Boooooo Yeeeeaaah!`);
+        setWarningFeedback(``);
+        removefeedback();
+
         console.log(receipt);
-        setFeedback(
-          `👻 Boooooo Yeeeeaaah!<br />You catch a Boo NFT! go visit Opensea.io to view it.`
-        );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
-
-        // Update all data
         getData();
       });
   };
@@ -140,7 +149,6 @@ function App() {
     let totalGasLimit = String(CONFIG.GAS_LIMIT);
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     
     // Change button status
     setClaimingNft(true);
@@ -154,19 +162,21 @@ function App() {
         value: totalCostWei,
       })
       .once("error", (err) => {
+        setWarningFeedback("Oops... Try again later.");
+        setSuccessFeedback(``);
+        removefeedback();
+
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
         setClaimingNft(false);
       })
       .then((receipt) => {
+        setSuccessFeedback(`👻 Boooooo Yeeeeaaah!`);
+        setWarningFeedback(``);
+        removefeedback();
+
         console.log(receipt);
-        setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
-        );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
-
-        // Update all data
         getData();
       });
   };
@@ -259,8 +269,9 @@ function App() {
             </button>
         </div>
 
-        {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}    
-        {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
+        {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
+        {warningFeedback !== "" ?(<><div class="warning-message">{warningFeedback}</div></>):null}
+        {successFeedback !== "" ?(<><div class="success-message">{successFeedback}</div></>):null}
       </>
     );
   }
@@ -296,8 +307,9 @@ function App() {
 
             </div>
 
-            {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
-            {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
+            {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
+            {warningFeedback !== "" ?(<><div class="warning-message">{warningFeedback}</div></>):null}
+            {successFeedback !== "" ?(<><div class="success-message">{successFeedback}</div></>):null}
           </>
         
       );
@@ -338,12 +350,13 @@ function App() {
                   getData();
                 }}
               > 
-              {claimingNft ? "Working..." : "Mint your Boo"}
+              {claimingNft ? "Hunting..." : "Mint your Boo"}
               </button>
             </div>
 
-            {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
-            {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
+            {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
+            {warningFeedback !== "" ?(<><div class="warning-message">{warningFeedback}</div></>):null}
+            {successFeedback !== "" ?(<><div class="success-message">{successFeedback}</div></>):null}
           </>
         
       );
@@ -387,7 +400,7 @@ function App() {
                     getData();
                   }}
                   > 
-                  {claimingNft ? "Working..." : "Mint your Boo"}
+                  {claimingNft ? "Hunting..." : "Mint your Boo"}
                   </button>
                 ) : (
                   <button disabled="1"> 
@@ -397,8 +410,9 @@ function App() {
               }
           </div>
 
-          {blockchain.errorMsg !== "" ? (<> <p> {blockchain.errorMsg} </p></>) : null}
-          {feedback !== "" ? (<> <p> {feedback} </p></>) : null}
+          {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
+          {warningFeedback !== "" ?(<><div class="warning-message">{warningFeedback}</div></>):null}
+          {successFeedback !== "" ?(<><div class="success-message">{successFeedback}</div></>):null}
         </>
         
       );

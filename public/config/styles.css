@@ -170,11 +170,11 @@ button:disabled{
 
 .hero {
   position: absolute;
-    top: 65%;
-    -ms-transform: translateY(-65%);
-    transform: translateY(-65%);
-    width: 100%;
-    overflow: visible;
+  top: 60%;
+  -ms-transform: translateY(-60%);
+  transform: translateY(-60%);
+  width: 100%;
+  overflow: visible;
 }
 
 .hero h4 {
@@ -252,12 +252,13 @@ button:disabled{
   background-color: rgba(255, 255, 255, .7);
   width: 400px;
   margin: auto;
-
-  position: relative;
+  
   border-radius: 22px;
 
   color: #6ECAFD;
   text-shadow: none;
+
+  overflow: hidden;
 }
 
 #dapp {
@@ -368,6 +369,17 @@ small {
 
 .public button:enabled {
   background-color: #21FC94; 
+}
+
+.warning-message, .success-message {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  color: red;
+}
+
+.success-message {
+  color: green;
 }
 
 
