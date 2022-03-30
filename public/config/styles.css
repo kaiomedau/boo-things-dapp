@@ -170,12 +170,11 @@ button:disabled{
 
 .hero {
   position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 65%;
+    -ms-transform: translateY(-65%);
+    transform: translateY(-65%);
     width: 100%;
     overflow: visible;
-    /*border: solid;*/
 }
 
 .hero h4 {
@@ -259,8 +258,6 @@ button:disabled{
 
   color: #6ECAFD;
   text-shadow: none;
-
-  overflow: hidden;
 }
 
 #dapp {
@@ -380,11 +377,11 @@ small {
   header ul {display: none;}
 
   #dapp-container {
-    width: 310px;
+    width: 316px;
   }
 
   .mint-status, .price-status {
-    width: 98%;
+    width: 95%;
   }
 
   .round_button {
