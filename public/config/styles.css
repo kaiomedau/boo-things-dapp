@@ -360,15 +360,15 @@ small {
 }
 
 .public {
-  color: #21FC94;
+  color: #6ECAFD;
 }
 
 #dapp.public {
-  border-color: #21FC94;
+  border-color: #6ECAFD;
 }
 
 .public button:enabled {
-  background-color: #21FC94; 
+  background-color: #6ECAFD; 
 }
 
 .warning-message, .success-message {
