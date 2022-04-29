@@ -26,6 +26,8 @@ function App() {
   const [mintDone, setMintDone] = useState(0);
   const [mintPrice, setMintPrice] = useState(0);
 
+  const [totlSupply, setTotlSupply] = useState(0);
+
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -88,16 +90,16 @@ function App() {
     });
   }
 
-  // const getAvailableWhitelistSlots = () => {
-  //   console.log ("😈 Retriving available whitelist slots");
-
-  //   blockchain.smartContract.methods.getAvailableWhiteSlots(blockchain.account).call().then((receipt) => {
-  //     console.log("😈😈 Available Whitelist Slots: " + receipt);
+  const getTotalSupply = () => {
+    console.log ("🔥 Retriving total totalSupply");
+    
+    blockchain.smartContract.methods.totalSupply().call().then((receipt) => {
+      console.log("🔥🔥 Whitelist count: " + receipt);
       
-  //     // Set mint price
-  //     setWhitelistMintAvailable(receipt);
-  //   });
-  // }
+      // Set mint price
+      setTotlSupply (receipt);
+    });
+  }
 
   const getMintCount = () => {
     console.log ("⚫️ Retriving mint count");
@@ -211,6 +213,9 @@ function App() {
 
       // get mint count
       getMintCount();
+
+      // Update Total Supply
+      getTotalSupply();
     }
   };
 
@@ -242,6 +247,8 @@ function App() {
             <h2>
               Boo Things
             </h2>
+
+            <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
 
             <div class="mint-status">
               <ul class="score-left">
@@ -289,6 +296,8 @@ function App() {
               Sold Out!
             </h2>
 
+            <small class="total_supply">{totlSupply} / {CONFIG.MAX_SUPPLY}</small>
+
             <div class="bottom_margin">
               <a href={CONFIG.MARKETPLACE_LINK}>Check on OpenSea</a>
             </div>
@@ -312,6 +321,8 @@ function App() {
               <h2>
                 Mint Not Live
               </h2>
+
+              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
 
               <div class="mint-status">
                 <ul class="score-left">
@@ -350,6 +361,8 @@ function App() {
               <h2>
                 Public Sale
               </h2>
+
+              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
 
               <div class="mint-status">
                 <ul class="score-left">
@@ -397,6 +410,8 @@ function App() {
               <h2>
                 Whitelist
               </h2>
+
+              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
 
               <div class="mint-status">
                 <ul class="score-left">
