@@ -233,7 +233,7 @@ function App() {
     getData();
   }, [blockchain.account]);
 
-  
+ 
   // Check if wallet is connected
   if(blockchain.account === "" || blockchain.smartContract === null) {
     return (
@@ -284,13 +284,13 @@ function App() {
   if(totlSupply >= CONFIG.MAX_SUPPLY) {
     return (
       <>
-        <div id="dapp" class="connect">
+        <div id="dapp" class="public">
             <h2>
               Sold Out!
             </h2>
 
             <div class="bottom_margin">
-              <a href="{CONFIG.MARKETPLACE_LINK}">Check on OpenSea</a>
+              <a href={CONFIG.MARKETPLACE_LINK}>Check on OpenSea</a>
             </div>
         </div>
 
