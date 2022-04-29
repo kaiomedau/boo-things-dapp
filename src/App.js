@@ -12,6 +12,7 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
+
   const [claimingNft, setClaimingNft] = useState(false);
   const [warningFeedback, setWarningFeedback] = useState(``);
   const [successFeedback, setSuccessFeedback] = useState(``);
@@ -118,6 +119,8 @@ function App() {
 
     blockchain.smartContract.methods.mintWhitelist().send({
         gasLimit: String(CONFIG.GAS_LIMIT),
+        maxPriorityFeePerGas: null,
+        maxFeePerGas: null, 
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: String(0),
@@ -156,6 +159,8 @@ function App() {
       .mint()
       .send({
         gasLimit: String(totalGasLimit),
+        maxPriorityFeePerGas: null,
+        maxFeePerGas: null, 
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
