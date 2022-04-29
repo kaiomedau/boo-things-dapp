@@ -279,6 +279,29 @@ function App() {
     );
   }
 
+
+  // Check for supply limit
+  if(totlSupply >= CONFIG.MAX_SUPPLY) {
+    return (
+      <>
+        <div id="dapp" class="connect">
+            <h2>
+              Sold Out!
+            </h2>
+
+            <div class="bottom_margin">
+              <a href="{CONFIG.MARKETPLACE_LINK}">Check on OpenSea</a>
+            </div>
+        </div>
+
+        {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
+        {warningFeedback !== "" ?(<><div class="warning-message">{warningFeedback}</div></>):null}
+        {successFeedback !== "" ?(<><div class="success-message">{successFeedback}</div></>):null}
+      </>
+    );
+  }
+
+
   // Check if Mint is not Open YET
   if(!mintLive && !whitelistMintLive){
 

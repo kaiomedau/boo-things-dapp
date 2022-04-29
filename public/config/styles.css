@@ -382,7 +382,12 @@ small {
   color: green;
 }
 
-
+.bottom_margin {
+  margin-bottom: 20px;
+}
+.bottom_margin a:hover {
+  text-decoration: underline;
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {
