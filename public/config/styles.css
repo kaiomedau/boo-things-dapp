@@ -84,10 +84,12 @@ button {
   color: #fff;
   height: 60px;
   background-color: #6ECAFD;
+  cursor: pointer;
 }
 
 button:disabled{
   background-color: #DBDBDB;
+  cursor: not-allowed;
 }
 
 .h_100 {
