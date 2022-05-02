@@ -248,7 +248,7 @@ function App() {
               Boo Things
             </h2>
 
-            <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
+            <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY} 👻</small>
 
             <div class="mint-status">
               <ul class="score-left">
@@ -296,7 +296,7 @@ function App() {
               Sold Out!
             </h2>
 
-            <small class="total_supply">{totlSupply} / {CONFIG.MAX_SUPPLY}</small>
+            <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY} 👻</small>
 
             <div class="bottom_margin">
               <a href={CONFIG.MARKETPLACE_LINK}>Check on OpenSea</a>
@@ -322,7 +322,7 @@ function App() {
                 Mint Not Live
               </h2>
 
-              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
+              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY} 👻</small>
 
               <div class="mint-status">
                 <ul class="score-left">
@@ -362,7 +362,7 @@ function App() {
                 Public Sale
               </h2>
 
-              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
+              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY} 👻</small>
 
               <div class="mint-status">
                 <ul class="score-left">
@@ -411,7 +411,7 @@ function App() {
                 Whitelist
               </h2>
 
-              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY}</small>
+              <small class="total_supply"> {totlSupply} / {CONFIG.MAX_SUPPLY} 👻</small>
 
               <div class="mint-status">
                 <ul class="score-left">
