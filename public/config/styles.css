@@ -69,7 +69,7 @@ footer {
 }
 
 h2 {
-  font-size: 80px;
+  font-size: 70px;
   margin: 50px 20px 20px 20px;
 }
 
@@ -277,12 +277,12 @@ button:disabled{
 }
 
 #dapp-container h2 {
-  font-size: 48px;
-  margin: 14px;
+  font-size: 40px;
+  margin: 14px 14px 4px 14px;
 }
 
 #dapp-container h3 {
-  font-size: 52px;
+  font-size: 40px;
   font-weight: bold;
   margin: 0;
 }
@@ -298,7 +298,7 @@ button:disabled{
 
   position: relative;
 
-  font-size: 52px;
+  font-size: 48px;
   font-weight: bold;
 
   margin: 0;
@@ -318,7 +318,7 @@ button:disabled{
 .mint-status, .price-status {
   display: block;
 
-  margin: 44px auto auto;
+  margin: 38px auto auto;
   width: 80%;
 }
 
