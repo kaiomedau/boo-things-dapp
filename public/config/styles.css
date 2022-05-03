@@ -318,12 +318,12 @@ button:disabled{
 .mint-status, .price-status {
   display: block;
 
-  margin: 38px auto auto;
+  margin: 30px auto auto;
   width: 80%;
 }
 
 .price-status {
-  margin: 20px auto 30px auto;
+  margin: 15px auto 30px auto;
 }
 
 
@@ -390,6 +390,22 @@ small {
 .bottom_margin a:hover {
   text-decoration: underline;
 }
+
+#contract {
+  font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+#contract a {
+  color: #fff;
+}
+#contract a:hover {
+  text-decoration: underline;
+}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) {

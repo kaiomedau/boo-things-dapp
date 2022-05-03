@@ -55,7 +55,7 @@ function App() {
     setTimeout(function(){ 
       setSuccessFeedback(``);
       setWarningFeedback(``);
-    }, 2000);
+    }, 5000);
   }
 
   const getSaleState = () => {
@@ -462,7 +462,6 @@ function App() {
                   onClick={(e) => {
                     e.preventDefault();
                     claimWhitelistNFT();
-                    getData();
                   }}
                   > 
                   {claimingNft ? "Hunting..." : "Mint your Boo"}
