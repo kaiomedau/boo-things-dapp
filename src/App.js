@@ -17,17 +17,21 @@ function App() {
   const [warningFeedback, setWarningFeedback] = useState(``);
   const [successFeedback, setSuccessFeedback] = useState(``);
   const [displayPrice, setDisplayPrice] = useState(`0 MATIC`);
-
-  const [mintLive, setMintLive] = useState(false);
-  const [whitelistMintLive, setWhitelistMintLive] = useState(false);
+  
+  const [totlSupply, setTotlSupply] = useState(0);
+  const [mintLive, setMintLive] = useState(false); // Public sale
+  const [whitelistMintLive, setWhitelistMintLive] = useState(false); // whitelist mint
 
   const [whitelistCount, setWhitelistCount] = useState(0);
-  // const [whitelistMintAvailable, setWhitelistMintAvailable] = useState(0);
   const [mintDone, setMintDone] = useState(0);
+  
+  const [lastPrice, setLastPrice] = useState(0);
   const [mintPrice, setMintPrice] = useState(0);
+  const [fetchingPrice , setFetchingPrice] = useState(false);
+  const [fetchingCount , setFetchingCount] = useState(0);
 
-  const [totlSupply, setTotlSupply] = useState(0);
-
+  let fetchCount = 0;
+  
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -68,14 +72,26 @@ function App() {
 
   const getNextPrice = () => {
     console.log ("🤑 Retriving price for wallet");
+    setFetchingPrice(true);
     blockchain.smartContract.methods.getMyNextPriceWithAddress(blockchain.account).call().then((receipt) => {
       console.log("🤑🤑 Next price: " + receipt);
       
       // Set display price
       setDisplayPrice(receipt == 0 ? "Free" : Web3B.utils.fromWei(receipt, 'ether') + " MATIC");
       
-      // Set mint price
-      setMintPrice (receipt);
+      if(mintLive && lastPrice > 0 && lastPrice >= receipt && fetchCount < 50){
+        fetchCount++;
+        console.log ("🤑😨 Mint price was the same as before(" + lastPrice + "/" + receipt + ")");
+        getNextPrice();
+      } else {
+        fetchCount = 0;
+        console.log ("🤑🥰 New mint price set(" + lastPrice + "/" + receipt + ")");
+        setLastPrice(receipt);
+        // Set mint price
+        setMintPrice (receipt);
+        // release mint button
+        setFetchingPrice(false);
+      }
     });
   }
 
@@ -134,6 +150,7 @@ function App() {
 
         console.log(err);
         setClaimingNft(false);
+        getData();
       })
       .then((receipt) => {
         setSuccessFeedback(`👻 Boooooo Yeeeeaaah!`);
@@ -174,6 +191,7 @@ function App() {
 
         console.log(err);
         setClaimingNft(false);
+        getData();
       })
       .then((receipt) => {
         setSuccessFeedback(`👻 Boooooo Yeeeeaaah!`);
@@ -183,6 +201,7 @@ function App() {
         console.log(receipt);
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
+        
         getData();
       });
   };
@@ -202,20 +221,17 @@ function App() {
       getSaleState();
       getWhitelistState();
       
-      // get next price for this user
-      getNextPrice();
-
       // get whitelist total
       getWhitelistSlots();
-
-      // Get available whitelist slots
-      // getAvailableWhitelistSlots();
 
       // get mint count
       getMintCount();
 
       // Update Total Supply
       getTotalSupply();
+
+      // get next price for this user
+      getNextPrice(); 
     }
   };
 
@@ -382,15 +398,23 @@ function App() {
                 <small>+ Cents in Gas Fees</small>
               </div>
 
-              <button disabled= { claimingNft ? 1 : 0 }
-                onClick={(e) => {
-                  e.preventDefault();
-                  claimNFTs();
-                  getData();
-                }}
-              > 
-              {claimingNft ? "Hunting..." : "Mint your Boo"}
-              </button>
+              {
+                !fetchingPrice ? 
+                (
+                  <button disabled= { claimingNft ? 1 : 0 }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      claimNFTs();
+                    }}
+                  > 
+                  {claimingNft ? "Hunting..." : "Mint your Boo"}
+                  </button>
+                ) : (
+                  <button disabled="1"> 
+                    Fetching Price...
+                  </button>
+                )
+              }
             </div>
 
             {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
