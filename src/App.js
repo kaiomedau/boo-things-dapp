@@ -31,6 +31,7 @@ function App() {
   const [fetchingCount , setFetchingCount] = useState(0);
 
   let fetchCount = 0;
+  let fetchLimit = 50;
   
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -50,6 +51,12 @@ function App() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
+
+  const fetchNewPrice =  () => {
+    setTimeout(function(){ 
+      getNextPrice();
+    }, 1000);
+  }
 
   const removefeedback = () => {
     setTimeout(function(){ 
@@ -71,7 +78,7 @@ function App() {
   }
 
   const getNextPrice = () => {
-    console.log ("🤑 Retriving price for wallet");
+    console.log ("🤑 Retriving price for wallet " + fetchCount + "/" + fetchLimit);
     setFetchingPrice(true);
     blockchain.smartContract.methods.getMyNextPriceWithAddress(blockchain.account).call().then((receipt) => {
       console.log("🤑🤑 Next price: " + receipt);
@@ -82,7 +89,8 @@ function App() {
       if(mintLive && lastPrice > 0 && lastPrice >= receipt && fetchCount < 50){
         fetchCount++;
         console.log ("🤑😨 Mint price was the same as before(" + lastPrice + "/" + receipt + ")");
-        getNextPrice();
+        // getNextPrice();
+        fetchNewPrice();
       } else {
         fetchCount = 0;
         console.log ("🤑🥰 New mint price set(" + lastPrice + "/" + receipt + ")");
