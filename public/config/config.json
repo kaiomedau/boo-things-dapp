@@ -11,7 +11,7 @@
   "MAX_SUPPLY": 10000,
   "WEI_COST": 1,
   "DISPLAY_COST": 0.0,
-  "GAS_LIMIT": 320000,
+  "GAS_LIMIT": 400000,
   "MARKETPLACE": "OpeanSea",
   "MARKETPLACE_LINK": "https://opensea.io/collection/boo-things-collection",
   "SHOW_BACKGROUND": true
