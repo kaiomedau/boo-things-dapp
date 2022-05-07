@@ -335,6 +335,7 @@ function App() {
   }
 
 
+
   // Check if Mint is not Open YET
   if(!mintLive && !whitelistMintLive){
 
@@ -464,12 +465,13 @@ function App() {
               </div>
 
               {
-                mintDone < whitelistCount ? 
+                parseInt(mintDone) < parseInt(whitelistCount) ? 
                 (
                   <button disabled= { claimingNft ? 1 : 0 }
                   onClick={(e) => {
                     e.preventDefault();
                     claimWhitelistNFT();
+                    getData();
                   }}
                   > 
                   {claimingNft ? "Hunting..." : "Mint your Boo"}
@@ -480,6 +482,7 @@ function App() {
                   </button>
                 )
               }
+
           </div>
 
           {blockchain.errorMsg !== "" ?(<><div class="warning-message">{blockchain.errorMsg}</div></>):null}
