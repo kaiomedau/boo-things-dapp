@@ -144,7 +144,7 @@ function App() {
     setClaimingNft(true);
 
     blockchain.smartContract.methods.mintWhitelist().send({
-        gasLimit: null,
+        gasLimit: String(CONFIG.GAS_LIMIT),
         maxPriorityFeePerGas: null,
         maxFeePerGas: null, 
         to: CONFIG.CONTRACT_ADDRESS,
