@@ -86,7 +86,7 @@ function App() {
       // Set display price
       setDisplayPrice(receipt == 0 ? "Free" : Web3B.utils.fromWei(receipt, 'ether') + " MATIC");
       
-      if(mintLive && lastPrice > 0 && lastPrice >= receipt && fetchCount < 50){
+      if(mintLive && parseInt(lastPrice) > 0 && parseInt(lastPrice) >= parseInt(receipt) && fetchCount < fetchLimit){
         fetchCount++;
         console.log ("🤑😨 Mint price was the same as before(" + lastPrice + "/" + receipt + ")");
         // getNextPrice();
@@ -312,7 +312,7 @@ function App() {
 
 
   // Check for supply limit
-  if(totlSupply >= CONFIG.MAX_SUPPLY) {
+  if(parseInt(totlSupply) >= parseInt(CONFIG.MAX_SUPPLY)) {
     return (
       <>
         <div id="dapp" class="public">
